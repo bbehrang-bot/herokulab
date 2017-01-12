@@ -1,13 +1,12 @@
 {
-<<<<<<< HEAD
   "name": "Start on Heroku: Node.js",
   "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/bbehrang/Bbmusic.git",
+  "repository": "https://github.com/bbehrang/herokulab.git"
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"],
   "image": "heroku/nodejs"
 }
-=======
+
   "name": "herokulab",
   "scripts": {
   },
@@ -22,4 +21,4 @@
 
   ]
 }
->>>>>>> origin/master
+
