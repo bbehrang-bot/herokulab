@@ -1,0 +1,167 @@
+  <% layout('layout') -%>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js'></script>
+
+
+  <script>
+  function doSearch() {
+    var input = document.getElementById("searchName").value;
+  // створити новий об'єкт AJAX-запиту
+  var xhttp = new XMLHttpRequest();
+  // підписатись на зміну стану об'єкта
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = this.responseText;
+      var template = document.getElementById("my-list-template").innerHTML;
+      var data = JSON.parse(data);
+      var bands = {
+        "bands" : data.bands
+      }
+      console.log(bands);
+      var renderedHTML = Mustache.render(template, bands);
+      document.getElementById("template-output").innerHTML = renderedHTML;
+    }
+  };
+  // задати опції запиту до веб-сервера (GET /get_data)
+  xhttp.open("GET", "/bands/search?name="+input, true);
+  // відправити запит
+  xhttp.send();
+}
+  </script>
+  <script id="my-list-template" type="x-tmpl-mustache">
+  {{#bands}}
+  <div class="product" style="    height: 20px;background-color: rgba(56, 56, 56, 0.71);width: 198px;">
+    <a href="/bands/{{_id}}" title="{{name}}">
+      {{name}}</label>
+    </a>
+  </div>
+  {{/bands}}
+  </script>
+  <section class="bands">
+    <div class="pagination">
+      <%
+        page = parseInt(page);
+        nextPage = page + 1;
+        prevPage = page - 1;
+        skipped = parseInt(skipped);
+        count = parseInt(count);
+
+        if(skipped + arr.length < count) {%>
+          <a href='?page=<%=nextPage%>' title="prev">Next</a>
+        <%}
+        %>
+        <% if(page-1 >=1) {%>
+          <a href="?page=<%=prevPage%>" title="prev">Previous</a>%>
+        <%} %>
+        <% if(page-1 ==0) {%>
+          <a href="/bands" title="prev">Previous</a>%>
+        <%} %>
+
+
+    </div>
+    <div class="search">
+        <input type="text" name="name" id="searchName" />
+          <input class="searchSubmit" onclick="doSearch()" type="submit" />
+        <div id="template-output"></div>
+
+    </div>
+    <script>
+      function scaleBig(x)
+      {
+        var b = x.children;
+        var c = b[0].children;
+        var d = c[0].children;
+        d[0].style.transform = "scale(1.1)";
+        var e = c[1].children;
+        e[0].style.color = "#00fdff";
+          e[0].style.fontSize = "25px";
+      }
+      function scaleSmall(x)
+      {
+        var b = x.children;
+        var c = b[0].children;
+        var d = c[0].children;
+        d[0].style.transform = "scale(1)";
+        var e = c[1].children;
+        e[0].style.color =   "#fff";
+        e[0].style.fontSize = "20px";
+      }
+    </script>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="removeForm" method="post" action="/bands/delete">
+        <input type="submit" value="yes" />
+        </form>
+      </div>
+
+    </div>
+<div class="roow">
+  <%
+   for (var i = 0; i < arr.length; i++) {
+
+     %>
+     <div class="bands_row">
+     <div class="bands_remove">
+     <input class="btnRemove" type="button" value="X" />
+     <input type="hidden" value="<%=arr[i]._id%>" />
+     </div>
+     <a title='<%=arr[i].name %>' href="/bands/<%=arr[i]._id%>" >
+     <div class="bands_image">
+     <img alt='<%= arr[i].name %>' src='<%=arr[i].image%>'>
+     </div>
+     <div class="bands_name">
+     <h2><%= arr[i].name %></h2></div>
+     </div>
+     </a>
+  <%}%>
+</div>
+    <script>
+    var classname = document.getElementsByClassName("btnRemove");
+
+    var myFunction = function(r) {
+          var form = document.getElementById("removeForm");
+          var elem = document.getElementById("delId");
+          if(elem != null)
+            elem.parentNode.removeChild(elem);
+          var input = document.createElement("input");
+          input.type = "hidden";
+          input.value = this.parentNode.children[1].value;
+          input.name = "id";
+          input.id = "delId";
+          form.appendChild(input);
+          var modal = document.getElementById('myModal');
+          var btn = document.getElementById("myBtn");
+          var span = document.getElementsByClassName("close")[0];
+          modal.style.display = "block";
+          span.onclick = function() {
+              console.log('span');
+              modal.style.display = "none";
+              return false;
+          }
+          window.onclick = function(event) {
+              if (event.target == modal) {
+                  console.log('window');
+                  modal.style.display = "none";
+                  return false;
+              }
+          }
+      };
+      for (var i = 0; i < classname.length; i++) {
+          classname[i].addEventListener('click', myFunction, false);
+      }
+    function deleteConfirm(){
+      console.log('sdd');
+      var modal = document.getElementById('myModal');
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      var yes = document.getElementById("yesDelete");
+      modal.style.display = "block";
+
+    }
+
+    </script>
+  </section>
+  </div>

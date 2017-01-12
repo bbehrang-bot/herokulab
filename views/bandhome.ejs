@@ -1,0 +1,28 @@
+<% layout('layout') -%>
+  <section class="bands_details">
+    <div class="bands_row_details">
+       <div class="bands_image">
+       <img alt='<%= band.name %>' src='<%=band.image%>'>
+       </div>
+       <div class="bands_info">
+         <div class="bands_name_details">
+         <h2><%= band.name %></h2></div>
+         <div class="bands_name_details">
+           <h2> Best seling album : <%= band.bestSellingAlbum %></h2>
+         </div>
+         <div class="bands_name_details">
+           <h3> formed on : <%= band.yearsActive.toDateString() %></h2>
+         </div>
+
+        <div class="bands_name_details">
+           <h3> have release   <%=band.numberOfReleasedAlbums %> albums</h2>
+        </div>
+
+         <div class="bands_name_details">
+           <h3> Consists of : <%= band.membersCount %> artists</h2>
+        </div>
+         </div>
+       </div>
+       <%
+       %>
+  </section>

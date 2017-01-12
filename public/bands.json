@@ -1,0 +1,61 @@
+	 {
+			"name": "Radiohead",
+			"bestSellingAlbum": "In Rainbows",
+			"yearsActive": "1985-03-04",
+			"numberOfReleasedAlbums": 8,
+			"membersCount": 5
+		}, {
+			"name": "Muse",
+			"bestSellingAlbum": "The Resistance",
+			"yearsActive": "1994-01-02",
+			"numberOfReleasedAlbums": 7,
+			"membersCount": 3
+		}, {
+			"name": "Anathema",
+			"bestSellingAlbum": "Judgement",
+			"yearsActive": "1990-09-22",
+			"numberOfReleasedAlbums": 10,
+			"membersCount": 6
+		}, {
+			"name": "Pink Floyd",
+			"bestSellingAlbum": "The Dark Side of the Moon",
+			"yearsActive": "1965-12-30",
+			"numberOfReleasedAlbums": 12,
+			"membersCount": 5
+		}, {
+			"name": "Archive",
+			"bestSellingAlbum": "Lights",
+			"yearsActive": "1994-2-13",
+			"numberOfReleasedAlbums": 11,
+			"membersCount": 10
+		}, {
+			"name": "Porcupine Tree",
+			"bestSellingAlbum": "The Incident",
+			"yearsActive": "1987-6-12",
+			"numberOfReleasedAlbums": 10,
+			"membersCount": 5
+		}, {
+			"name": "Tom Waits",
+			"bestSellingAlbum": "The Incident",
+			"yearsActive": "1972-9-29",
+			"numberOfReleasedAlbums": 16,
+			"membersCount": 2
+		}, {
+			"name": "Coldplay",
+			"bestSellingAlbum": "Parachutes",
+			"yearsActive": "1996-6-6",
+			"numberOfReleasedAlbums": 7,
+			"membersCount": 5
+		}, {
+			"name": "Other Lives",
+			"bestSellingAlbum": "Parachutes",
+			"yearsActive": "2004-10-3",
+			"numberOfReleasedAlbums": 6,
+			"membersCount": 3
+		}, {
+			"name": "Mumford & Sons",
+			"bestSellingAlbum": "Babel",
+			"yearsActive": "2007-12-1",
+			"numberOfReleasedAlbums": 3,
+			"membersCount": 4
+		}

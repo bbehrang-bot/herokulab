@@ -1,0 +1,206 @@
+<% layout('layout') -%>
+
+  <section class="secBody" style="color:white">
+    <form action="/bands/add" method="post" enctype="multipart/form-data">
+      <div id="nameDiv">
+        <label class="formLabel" for="name">Name</label>
+        <input onfocus="validateForm()" id="name" type="text" name="name" />
+      </div>
+      <div id="bestSellingAlbumDiv">
+        <label class="formLabel" for="bestSellingAlbum">bestSellingAlbum</label>
+        <input onfocus="validateForm()" id="bestSellingAlbum" type="text" name="bestSellingAlbum" />
+      </div>
+      <div id="yearsActiveDiv">
+        <label class="formLabel" for="yearsActive">yearsActive</label>
+        <input onfocus="validateForm()" id="yearsActive" type="text" name="yearsActive" />
+      </div>
+      <div id="numberOfReleasedAlbumsDiv">
+        <label class="formLabel" for="numberOfReleasedAlbums">numberOfReleasedAlbums</label>
+        <input onfocus="validateForm()" id="numberOfReleasedAlbums" type="text" name="numberOfReleasedAlbums" />
+      </div>
+      <div id="membersCountDiv">
+        <label class="formLabel" for="membersCount">membersCount</label>
+        <input onfocus="validateForm()" id="membersCount" type="text" name="membersCount" />
+      </div>
+      <div id="logoDiv">
+        <input onfocus="validateForm()"  type="file" name="Logo" id="logo"/>
+      </div>
+      <div id="btnDiv" onmouseover="validateForm()">
+        <input id="Button" type="submit" />
+      </div>
+
+    </form>
+  </section>
+  <script>
+  document.getElementById("Button").disabled = true;
+  function validateName(){
+    var name = document.getElementById("name").value;
+    var errorMsgName;
+    var letters = /^[0-9a-zA-Z]+$/;
+    if(name.match(letters))
+    {
+      if(name.length < 3 || name.length>20)
+      {
+        errorMsgName = "Name can should be between 3 to 20 characters";
+      }
+      else{
+        var elem = document.querySelector("#nameDiv p");
+        if(elem != null)
+          elem.parentNode.removeChild(elem);
+        return true;
+      }
+    }
+    else{
+      errorMsgName = "Name can contain characters and numbers only";
+    }
+    if(errorMsgName)
+    {
+      var elem = document.querySelector("#nameDiv p");
+      if(elem!=null)
+        elem.parentNode.removeChild(elem);
+      var oNewP = document.createElement("p");
+      var oText = document.createTextNode(errorMsgName);
+      oNewP.appendChild(oText);
+      var toAdd = document.getElementById("nameDiv");
+      toAdd.appendChild(oNewP);
+      return false;
+    }
+  }
+  function validateAlbum(){
+    var bestSellingAlbum = document.getElementById("bestSellingAlbum").value;
+    var errorMsgName;
+    var letters = /^[0-9a-zA-Z]+$/;
+    if(bestSellingAlbum.match(letters))
+    {
+      if(bestSellingAlbum.length < 3 || bestSellingAlbum.length>40)
+      {
+        errorMsgName = "bestSellingAlbum can should be between 3 to 20 characters";
+      }
+      else{
+        var elem = document.querySelector("#bestSellingAlbumDiv p");
+        if(elem != null)
+          elem.parentNode.removeChild(elem);
+        return true;
+      }
+    }
+    else{
+      errorMsgName = "bestSellingAlbum can contain characters and numbers only";
+    }
+    if(errorMsgName)
+    {
+      var elem = document.querySelector("#bestSellingAlbumDiv p");
+      if(elem!=null)
+        elem.parentNode.removeChild(elem);
+      var oNewP = document.createElement("p");
+      var oText = document.createTextNode(errorMsgName);
+      oNewP.appendChild(oText);
+      var toAdd = document.getElementById("bestSellingAlbumDiv");
+      toAdd.appendChild(oNewP);
+      return false;
+    }
+  }
+  function validateReleased(){
+    var numberOfReleasedAlbums = document.getElementById("numberOfReleasedAlbums").value;
+    var numbers = /^[0-9]+$/;
+        var errorMsgName;
+    if(numberOfReleasedAlbums.match(numbers))
+    {
+      if(numberOfReleasedAlbums < 0)
+      {
+        errorMsgName = "numberOfReleasedAlbums should be greater than 0"
+      }
+      else{
+        var elem = document.querySelector("#numberOfReleasedAlbumsDiv p");
+        if(elem != null)
+          elem.parentNode.removeChild(elem);
+        return true;
+      }
+    }
+    else{
+      errorMsgName = "numberOfReleasedAlbums can contain numbers only";
+    }
+    if(errorMsgName)
+    {
+      var elem = document.querySelector("#numberOfReleasedAlbumsDiv p");
+      if(elem!=null)
+        elem.parentNode.removeChild(elem);
+      var oNewP = document.createElement("p");
+      var oText = document.createTextNode(errorMsgName);
+      oNewP.appendChild(oText);
+      var toAdd = document.getElementById("numberOfReleasedAlbumsDiv");
+      toAdd.appendChild(oNewP);
+      return false;
+    }
+  }
+  function validateMembersCount(){
+    var membersCount = document.getElementById("membersCount").value;
+    var numbers = /^[0-9]+$/;
+        var errorMsgName;
+    if(membersCount.match(numbers))
+    {
+      if(numberOfReleasedAlbums < 0)
+      {
+        errorMsgName = "membersCount should be greater than 0"
+      }
+      else{
+        var elem = document.querySelector("#membersCountDiv p");
+        if(elem != null)
+          elem.parentNode.removeChild(elem);
+        return true;
+      }
+    }
+    else{
+      errorMsgName = "membersCount can contain numbers only";
+    }
+    if(errorMsgName)
+    {
+      var elem = document.querySelector("#membersCountDiv p");
+      if(elem!=null)
+        elem.parentNode.removeChild(elem);
+      var oNewP = document.createElement("p");
+      var oText = document.createTextNode(errorMsgName);
+      oNewP.appendChild(oText);
+      var toAdd = document.getElementById("membersCountDiv");
+      toAdd.appendChild(oNewP);
+      return false;
+    }
+  }
+  function validateImage(){
+      var image = document.getElementById("logo").value;
+        var errorMsgName;
+        console.log(image);
+      if(image.length == 0){
+        errorMsgName = "Image is required";
+        var elem = document.querySelector("#logoDiv p");
+        if(elem != null)
+          elem.parentNode.removeChild(elem);
+        return false;
+      }
+      else{
+        var elem = document.querySelector("#logoDiv p");
+        if(elem != null)
+          elem.parentNode.removeChild(elem);
+        return true;
+      }
+  }
+  function validateForm(){
+    var errors = 0;
+    if(!validateName())
+      errors++;
+    if(!validateAlbum())
+      errors++;
+    if(!validateReleased())
+      errors++;
+    if(!validateMembersCount())
+      errors++;
+    if(!validateImage())
+      errors++;
+    if(errors!=0)
+    {
+      document.getElementById("Button").disabled = true;
+    }
+    else{
+        document.getElementById("Button").disabled = false;
+    }
+  }
+  </script>

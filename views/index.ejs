@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title><%= page_title %></title>
+  <meta name="description" content="<%= meta_desc %>">
+  <meta name="author" content="<%= meta_author %>">
+
+  <link type="text/css" rel="stylesheet" href="/public/stylesheets/reset.css" />
+  <link type="text/css" rel="stylesheet" href="/public/stylesheets/normalize.css" />
+  <link type="text/css" rel="stylesheet" href="/public/stylesheets/index.css" />
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="wrapper">
+    <video playsinline autoplay loop poster="images/intro.jpg" id="bgvid">
+    <source src="/public/video/intro.mp4" type="video/mp4">
+    </video>
+  <header>
+    <div class="fadedBackground"></div>
+    <h1><%= header %></h1>
+    <nav>
+      <a href="/" title="Home">Home</a>
+      <a href="bands" title="Bands">Bands</a>
+    </nav>
+  </header>
+  </div>
+</body>
+</html>

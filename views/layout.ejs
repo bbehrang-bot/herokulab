@@ -1,0 +1,41 @@
+<%"use_strict";%>
+<html>
+<head>
+  <title>B.B Online Music Store</title>
+  <link type="text/css" rel="stylesheet" href="/public/stylesheets/reset.css" />
+  <link type="text/css" rel="stylesheet" href="/public//stylesheets/normalize.css" />
+  <link type="text/css" rel="stylesheet" href="/public/stylesheets/index.css" />
+</head>
+<body>
+  <div class="wrapperLayout">
+
+  <header>
+    <div class="fadedBackground"></div>
+    <h1>B.B Online Music Store</h1>
+    <nav>
+      <a href="/" title="Home">Home</a>
+      <a href="/bands" title="Bands">Bands</a>
+    </nav>
+    <% if(user) { %>
+      <div class="login_register">
+      <span style="color:white">Hello, <%=user.username%></span>
+      <div class="logout">
+        <a href="/users/logout" title="Logout">Logout</a>
+      </div>
+      </div>
+      <% if(user.type == 'admin') { %>
+        <div class="list">
+          <a href="/users/list" title="list">user list</a>
+        </div>
+        <%} %>
+      <%} %>
+
+
+
+  </header>
+  <div class="bodyContainer">
+    <%-body%>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+style next prev
+error page
+no search found

@@ -1,0 +1,25 @@
+<% layout('layout') -%>
+<div class="row">
+        <div class="alertContainer">
+          <% if(success_msg != '') {%>
+              <div class="alert alert-success"><%=success_msg%></div>
+          <%} %>
+          <% if(error_msg != '') {%>
+              <div class="alert alert-danger"><%=error_msg%></div>
+          <%} %>
+            <% if(error != '') {%>
+            <div class="alert alert-danger"><%=error%></div>
+            <%} %>
+
+          <% if(typeof errors != 'undefined'){ %>
+            <% errors.forEach(function(elements){ %>
+              <div class="alert alert-danger"><%= elements.msg %></div>
+            <%}); %>
+          <%} %>
+<form action="/users/register" method="post">
+  <label class="formLabel" for="username">UserName</label>
+  <input type="text" name="username" />
+  <label class="formLabel" for="password">Password</label>
+  <input type="text" name="password" />
+  <input type="submit" />
+</form>
