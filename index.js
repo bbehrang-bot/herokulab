@@ -18,7 +18,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var csrf = require('csurf');
 var route = express.Router();
 var csrfProtection = csrf({cookie:true});
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds161518.mlab.com:61518/heroku_w2ghbx7q');
+mongoose.connect('mongodb://heroku_w2ghbx7q:q7umm8br4dkegd8i5hrutabi9o@ds161518.mlab.com:61518/heroku_w2ghbx7q');
 var db = mongoose.connection;
 var app = express();
 
