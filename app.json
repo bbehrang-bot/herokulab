@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "Start on Heroku: Node.js",
   "description": "A barebones Node.js app using Express 4",
   "repository": "https://github.com/bbehrang/Bbmusic.git",
@@ -6,3 +7,19 @@
   "keywords": ["node", "express", "static"],
   "image": "heroku/nodejs"
 }
+=======
+  "name": "herokulab",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
+>>>>>>> origin/master
